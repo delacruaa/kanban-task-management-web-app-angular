@@ -32,9 +32,9 @@
     }
     .theme__switcher__wrapper {
         align-content: flex-start;
-        &:last-child {
-            display: none;
-        }
+       .btn {
+        display: none;
+       }
         .theme__switcher {
             align-self: flex-start;
         }
