@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IBoard } from 'src/app/models/IBoard';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-sidebar-modal',
@@ -9,4 +10,8 @@ import { IBoard } from 'src/app/models/IBoard';
 export class SidebarModalComponent {
   @Input() currentBoardName!:string
   @Input() boardList!:IBoard[]
+  constructor(private modalService:ModalService){}
+  closeModal() {
+    this.modalService.closeModal('sidebarModal')
+  }
 }

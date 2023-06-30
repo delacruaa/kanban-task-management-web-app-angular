@@ -93,7 +93,9 @@ export class EditTaskModalComponent implements OnInit {
   }
  
  
-
+  closeModal() {
+    this.modalService.closeModal('editTaskModal')
+  }
 
   submitForm() {
    

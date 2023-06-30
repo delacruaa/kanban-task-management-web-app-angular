@@ -33,8 +33,10 @@
                </div>
             </div>
             <div class="btn__wrapper">
+                
                 <app-button [buttonClass]="'secondary'" [disabled] ="sameColumn"  [width]="true" (click)="addColumn()" >+ Add New Column</app-button>
                 <app-button [buttonClass]="'primary'"  [type]="'submit'" [width]="true" >Save Changes</app-button>
+                <app-button [buttonClass]="'secondary'" class="btn"  (click)="closeModal()" [width]="true" >Cancel</app-button>
             </div>
 
         </form>

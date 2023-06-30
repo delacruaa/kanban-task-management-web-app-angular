@@ -14,7 +14,7 @@ export class ModalService {
   deleteBoardModalIsOpen=new BehaviorSubject<boolean>(false)
   addColumnModalIsOpen=new BehaviorSubject<boolean>(false)
   sidebarModalIsOpen=new BehaviorSubject<boolean>(false)
-
+  
 
   openModal(modalName:string) {
     

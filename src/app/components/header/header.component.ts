@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostListener, Input} from '@angular/core';
+import { IBoard } from 'src/app/models/IBoard';
 import { ModalService } from 'src/app/services/modal.service';
 import { SidebarService } from 'src/app/services/sidebar.service';
 
@@ -12,6 +13,7 @@ export class HeaderComponent  {
   isSidebarOpen!:boolean
   addTaskModalIsOpen=false
   @Input() currentBoardName!:string
+  @Input() boardList!:IBoard[]
   constructor(private elementRef: ElementRef,private sidebarService:SidebarService,private modalService:ModalService) {}
   ngOnInit(): void {
     this.sidebarService.getSidebarOpen().subscribe(data=> {
@@ -27,6 +29,7 @@ export class HeaderComponent  {
     this.isOpenDropdown =!this.isOpenDropdown
   }
   openModal() {
+    
     this.modalService.openModal('addTaskModal')
   }
   openEditBoardModal() {

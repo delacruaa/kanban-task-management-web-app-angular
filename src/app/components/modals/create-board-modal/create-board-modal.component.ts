@@ -80,7 +80,9 @@ export class CreateBoardModalComponent implements OnInit {
   onKeyDown(event: any) {
     event.preventDefault(); 
   }
- 
+  closeModal() {
+    this.modalService.closeModal('createBoardModal')
+  }
   submitForm() {
     this.submitted = true;
     let id =  new Date().getTime()

@@ -1,7 +1,7 @@
-<app-header [currentBoardName]="currentBoardName"></app-header>
+<app-header [boardList]="boardList" [currentBoardName]="currentBoardName"></app-header>
 <app-sidebar [ngClass]="isSidebarOpen? 'wrapper__active': 'wrapper'" [boardList]="boardList" [currentBoardName]="currentBoardName"></app-sidebar>
-<app-board [loading]="loading" [error]="error" class="board" ></app-board>
-<app-eye-button *ngIf="!error && !loading" class="eye-button"></app-eye-button>
+<app-board [loading]="loading" [error]="error" [boardList]="boardList" class="board" ></app-board>
+<app-eye-button *ngIf="!error && !loading && boardList.length!==0" class="eye-button"></app-eye-button>
 <app-view-task-model  *ngIf="viewTaskModalIsOpen"></app-view-task-model>
 <app-delete-task-modal *ngIf="deleteTaskModalIsOpen"></app-delete-task-modal>
 <app-edit-task-modal *ngIf="editTaskModalIsOpen"></app-edit-task-modal>

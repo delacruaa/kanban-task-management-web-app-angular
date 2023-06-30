@@ -51,6 +51,12 @@
             }
             
         }
-        
+
+        .btn__wrapper {
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            gap: 20px;
+        }
     }
 }

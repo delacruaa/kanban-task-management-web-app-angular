@@ -63,8 +63,7 @@
         }
         .select {
             width: 100%;
-            position: absolute;
-            top: 100px;
+           
         } 
     }
     .subtasks {
@@ -139,6 +138,7 @@
         top: 20px;
         right: 10px;
         position: absolute;
+        
         .edit {
             color: var(--medium-grey);
             font-size: 13px;
@@ -150,5 +150,9 @@
             @extend .edit;
             color: var(--red)
         }
+    }
+    .btn {
+        width: 100%;
+        margin-top: 32px;
     }
 }

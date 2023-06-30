@@ -14,6 +14,7 @@ export class BoardComponent {
   board!:IBoard 
   @Input() loading = false
   @Input() error = false
+  @Input() boardList!:IBoard[]
   constructor(private sidebarService:SidebarService, private boardService: BoardService, private modalService:ModalService,private elementRef: ElementRef) {}
   ngOnInit(): void {
     this.sidebarService.getSidebarOpen().subscribe(data=> {
@@ -26,6 +27,9 @@ export class BoardComponent {
     
   }
 
+  openCreateBoardModal() {
+    this.modalService.openModal('createBoardModal')
+  }
   openAddColumnModal() {
     this.modalService.openModal('addColumnModal')
   }

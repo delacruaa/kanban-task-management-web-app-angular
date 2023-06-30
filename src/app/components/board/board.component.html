@@ -1,16 +1,20 @@
 <div  #content [ngClass]="isSidebarOpen? 'wrapper__active': 'wrapper'">
-    <app-spinner *ngIf="loading"></app-spinner>
+    <app-spinner class="loading" *ngIf="loading"></app-spinner>
     <div class="error" *ngIf="error && !loading">
         <p>Something get wrong... try later</p>
     </div>
     <app-task-list *ngFor="let columns of board?.columns" [columns] = "columns" [tasks] ="board.tasks" ></app-task-list> 
-    <div *ngIf="!error && !loading" class="column" (click)="openAddColumnModal()">
+    <div *ngIf="!error && !loading && boardList.length!==0" class="column" (click)="openAddColumnModal()">
         + New Column
     </div>
-
+   <div class="btn" *ngIf="!error && !loading && boardList.length==0">
+        <app-button [buttonClass]="'primary'"  (click)="openCreateBoardModal()">
+            Create Board
+        </app-button>
+   </div>
    
 </div>
-<div class="btn__wrapper">
+<div class="btn__wrapper" *ngIf="!error && !loading && boardList.length!=0">
     <app-scroll-button [buttonClass]="'left'"  (click)="scrollLeft()"></app-scroll-button>
     <app-scroll-button [buttonClass]="'right'" (click)="scrollRight()"></app-scroll-button>
     

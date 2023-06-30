@@ -6,19 +6,19 @@
                <app-logo-icon  class="logo" ></app-logo-icon>
                <img src="/assets/logo2.svg" alt="logo">
             </div>
-            <div [ngClass]="isSidebarOpen? 'title__left': 'title'">
+            <div *ngIf="currentBoardName" [ngClass]="isSidebarOpen? 'title__left': 'title'">
                 <h1>{{currentBoardName}}</h1>
             </div> 
-            <div class="title__mobile"  (click)="openSidebarModal()">
+            <div *ngIf="currentBoardName" class="title__mobile"  (click)="openSidebarModal()">
                 <h1>{{currentBoardName}}</h1>
                 <app-arrow-icon  class="arrow"></app-arrow-icon>
               
             </div> 
 
             <div class="btn__wrapper">
-                <app-button [buttonClass]="'primary'" class="desktop" (click)="openModal()" >+ Add New Task</app-button>
-                <app-button [buttonClass]="'primary'" class="mobile" (click)="openModal()" >+</app-button>
-                <img src="/assets/dots.png" alt="dots"  (click)="openDropdown(); $event.stopPropagation()">
+                <app-button [buttonClass]="'primary'" class="desktop" (click)="openModal()" [disabled]="boardList.length==0" >+ Add New Task</app-button>
+                <app-button [buttonClass]="'primary'" class="mobile" (click)="openModal()" [disabled]="boardList.length==0">+</app-button>
+                <img *ngIf="boardList.length!==0" src="/assets/dots.png" alt="dots"  (click)="openDropdown(); $event.stopPropagation()">
                 <app-dropdown *ngIf="isOpenDropdown" class="dropdown"  >
                     <p class="edit" (click)="openEditBoardModal()">
                         Edit Board                
@@ -32,6 +32,6 @@
     </div>
 </header>
 
-<app-add-task-modal  *ngIf="addTaskModalIsOpen">
+<app-add-task-modal *ngIf="addTaskModalIsOpen">
 
 </app-add-task-modal>

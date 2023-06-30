@@ -32,15 +32,16 @@ export class AddColumnModalComponent implements OnInit {
   }
 
   checkSameColumn() {
-    this.currentBoard.columns?.forEach(item=> {
-      if(item.name.toLowerCase() == this.formGroup.value.name.toLowerCase()) {
-        this.sameColumn=true
-      }else {
-        this.sameColumn=false
-      }
-    })
+    const existingObject = this.currentBoard.columns!.find(obj => obj.name.toLowerCase() === this.formGroup.value.name.toLowerCase());
+    if (existingObject) {
+      this.sameColumn=true
+    } else {
+      this.sameColumn=false
+    }  
   }
-
+  closeModal() {
+    this.modalService.closeModal('addColumnModal')
+  }
   submitForm() {
    
     this.submitted = true;

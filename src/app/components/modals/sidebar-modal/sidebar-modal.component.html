@@ -2,4 +2,7 @@
    <div class="content">
     <app-sidebar  [boardList]="boardList" [currentBoardName]="currentBoardName"></app-sidebar>
    </div>
+   <div class="btn">
+      <app-button [buttonClass]="'secondary'"   (click)="closeModal()" [width]="true" >Cancel</app-button>
+  </div>
 </app-modal>

@@ -38,8 +38,11 @@
                 <app-arrow-icon class="img"  ></app-arrow-icon>
                 <app-select [contents]="selects" [currentContent]="currentSelect" (currentContentChanged)="currentContentChanged($event)"  [isDropdownOpen]="isDropdownOpen" class="select"></app-select>
             </div>
-            <app-button [buttonClass]="'primary'" class="btn" [type]="'submit'" [width]="true" >Save Change</app-button>
-
+            
+            <div class="btn__wrapper">
+                <app-button [buttonClass]="'secondary'" class="btn"  (click)="closeModal()" [width]="true" >Cancel</app-button>
+                <app-button [buttonClass]="'primary'" class="btn" [type]="'submit'" [width]="true" >Save Change</app-button>
+             </div>
         </form>
     </div>
 </app-modal>

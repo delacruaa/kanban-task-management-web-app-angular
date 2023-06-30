@@ -78,7 +78,9 @@ export class EditBoardModalComponent implements OnInit {
   onKeyDown(event: any) {
     event.preventDefault(); 
   }
- 
+  closeModal() {
+    this.modalService.closeModal('editBoardModal')
+  }
   submitForm() {
    
     this.submitted = true;

@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input, TemplateRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { IBoard, ISubtask, ITask } from 'src/app/models/IBoard';
 import { BoardService } from 'src/app/services/board.service';
@@ -79,7 +79,9 @@ export class AddTaskModalComponent {
     event.preventDefault(); 
   }
  
- 
+  closeModal() {
+    this.modalService.closeModal('addTaskModal')
+  }
 
 
   submitForm() {

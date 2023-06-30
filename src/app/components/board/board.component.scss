@@ -33,7 +33,14 @@
             font-size: 24px;
         }
     }
-    
+    .loading {
+        width: 100%;
+    }
+    .btn {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 }
 .btn__wrapper {
     display: flex;

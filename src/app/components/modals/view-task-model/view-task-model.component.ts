@@ -78,7 +78,9 @@ export class ViewTaskModelComponent implements OnInit{
   onKeyDown(event: any) {
     event.preventDefault(); 
   }
- 
+  closeModal() {
+    this.modalService.closeModal('viewTaskModal')
+  }
   updateSubtaskCompleted(id:string, isCompleted:boolean) {
     this.subtasks = this.subtasks.map(item=> {
       if(item.id==id) {
