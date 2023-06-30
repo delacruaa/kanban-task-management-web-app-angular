@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener} from '@angular/core';
+import { Component, ElementRef, HostListener, Input} from '@angular/core';
 import { ModalService } from 'src/app/services/modal.service';
 import { SidebarService } from 'src/app/services/sidebar.service';
 
@@ -11,6 +11,7 @@ export class HeaderComponent  {
   isOpenDropdown=false
   isSidebarOpen!:boolean
   addTaskModalIsOpen=false
+  @Input() currentBoardName!:string
   constructor(private elementRef: ElementRef,private sidebarService:SidebarService,private modalService:ModalService) {}
   ngOnInit(): void {
     this.sidebarService.getSidebarOpen().subscribe(data=> {
@@ -20,6 +21,7 @@ export class HeaderComponent  {
       this.addTaskModalIsOpen =data
       console.log(data)
     })
+    
   }
   openDropdown() {
     this.isOpenDropdown =!this.isOpenDropdown

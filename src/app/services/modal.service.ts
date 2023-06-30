@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -14,9 +14,10 @@ export class ModalService {
   deleteBoardModalIsOpen=new BehaviorSubject<boolean>(false)
   addColumnModalIsOpen=new BehaviorSubject<boolean>(false)
   sidebarModalIsOpen=new BehaviorSubject<boolean>(false)
-  constructor() { }
+
 
   openModal(modalName:string) {
+    
     if(modalName==='addTaskModal') {
       this.addTaskModalIsOpen.next(true)
     }

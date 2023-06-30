@@ -7,10 +7,10 @@
                <img src="/assets/logo2.svg" alt="logo">
             </div>
             <div [ngClass]="isSidebarOpen? 'title__left': 'title'">
-                <h1>PLatform Launch</h1>
+                <h1>{{currentBoardName}}</h1>
             </div> 
             <div class="title__mobile"  (click)="openSidebarModal()">
-                <h1>PLatform Launch</h1>
+                <h1>{{currentBoardName}}</h1>
                 <app-arrow-icon  class="arrow"></app-arrow-icon>
               
             </div> 

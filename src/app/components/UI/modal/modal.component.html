@@ -1,7 +1,6 @@
 <div class="overlay" (click)="closeModal()" >
-   
+    <div class="modal__content"  [@modalAnimation]  (click)="$event.stopPropagation()">
+        <ng-content></ng-content>
+    </div>
 </div>
 
-<div class="modal__content"  [@modalAnimation]  (click)="$event.stopPropagation()">
-    <ng-content></ng-content>
-</div>

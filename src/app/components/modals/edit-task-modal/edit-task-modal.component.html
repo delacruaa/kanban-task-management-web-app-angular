@@ -34,7 +34,7 @@
             <app-button [buttonClass]="'secondary'"  [width]="true" (click)="addSubtask()" >+ Add New Subtask</app-button>
             <div class="input__wrapper">
                 <label>Status</label>
-                <input class="input mb" type="text" [value]="currentSelect" placeholder="e.g. Take coffee break" (keydown)="onKeyDown($event)"  (click)="openDropdown(); $event.stopPropagation()">
+                <input class="input mb" readonly type="text" [value]="currentSelect" placeholder="e.g. Take coffee break" (keydown)="onKeyDown($event)"  (click)="openDropdown(); $event.stopPropagation()">
                 <app-arrow-icon class="img"  ></app-arrow-icon>
                 <app-select [contents]="selects" [currentContent]="currentSelect" (currentContentChanged)="currentContentChanged($event)"  [isDropdownOpen]="isDropdownOpen" class="select"></app-select>
             </div>

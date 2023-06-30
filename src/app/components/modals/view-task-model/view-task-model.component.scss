@@ -1,5 +1,5 @@
 .wrapper {
-    
+    position: relative;
     width: 100%;
     .title {
         color: var(--color);
@@ -129,15 +129,15 @@
         }
     }
     .dots {
-        top: 30px;
-        right: 20px;
+        top: 0;
+        right: -10px;
         position: absolute;
         cursor: pointer;
         padding: 0 10px;
     }
     .dropdown {
-        top: 60px;
-        right: 20px;
+        top: 20px;
+        right: 10px;
         position: absolute;
         .edit {
             color: var(--medium-grey);
