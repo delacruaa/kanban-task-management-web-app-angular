@@ -1,0 +1,164 @@
+header {
+    min-height: 96px;
+    background-color: var(--background);
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    
+    .container {
+        .wrapper {
+            height: 96px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            .logo__wrapper {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-right: 33px;
+                
+                img {
+                    display: none;
+                }
+            }
+            
+            .title {
+                border-left: 1px solid var(--border);
+                padding-left: 32px;
+                height: 100%;
+                transform: translateX(0px);
+                position: relative;
+                transition: 0.6s all;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .arrow {
+                    display: none;
+                }
+                h1 {
+                    
+                    color: var(--color);
+                    font-size: 24px;
+                    font-weight: 700; 
+                }
+            }
+            .title__left {
+                transform: translateX(50px);
+                position: relative;
+                transition: 0.6s all;
+                @extend .title;
+            }
+            .title__mobile {
+                @extend .title;
+                display: none;
+              
+            }
+            .btn__wrapper {
+                position: relative;
+                margin-left: auto;
+                display: flex; 
+                gap:20px;
+                align-items: center;
+                img {
+                    cursor: pointer;
+                    padding: 0 10px;
+                }
+                .mobile {
+                    display: none;
+                }
+                .dropdown {
+                    top: 80px;
+                    position: absolute;
+                    z-index: 2321321;
+                    .edit {
+                        color: var(--medium-grey);
+                        font-size: 13px;
+                        font-weight: 500;
+                        line-height: 23px; 
+                        cursor: pointer;
+                    }
+                    .delete {
+                        @extend .edit;
+                        color: var(--red)
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media(max-width:800px) {
+    header {
+        .container {
+            .wrapper {
+                gap: 20px;
+                .logo__wrapper {
+                    
+                    padding-right: 0;
+                    .logo {
+                        display: none;
+                    }
+                    img {
+                        display: block;
+                    }
+                }
+                .title {
+                    display: none;
+                }
+                .title__mobile {
+                    cursor: pointer;
+                    border-left: none;
+                    padding-left: 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    .arrow {
+                        display: block;
+                    }
+                }
+                .btn__wrapper {
+                    gap:10px;
+                    .mobile {
+                        display: block;
+                    }
+                    .desktop {
+                        display: none;
+                    }
+                    .dropdown {
+                        top: 66px;
+                        right: 6px;
+                        position: absolute;
+                        z-index: 2321321;
+                        
+                    }
+                }
+                
+            }
+        }
+    }
+    
+}
+
+@media(max-width:400px) {
+    header {
+        .container {
+            .wrapper {
+           
+                .title__mobile {
+                    border-left: none;
+                    padding-left: 0;
+                    h1 {
+                    
+                        color: var(--color);
+                        font-size: 16px;
+                        font-weight: 700; 
+                    }
+                }
+                
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,45 @@
+<app-modal [modalName]="'editTaskModal'">
+    <div class="wrapper">
+        <h2 class="title">
+            Edit Task
+        </h2>
+
+        <form [formGroup] = "formGroup" (ngSubmit)="submitForm()"> 
+            <div class="input__wrapper">
+                <label>Title</label>
+                <input [ngClass]="submitted &&  this.formGroup.get('title')?.invalid? 'input__error' : 'input'" type="text"  formControlName="title"  placeholder="e.g. Take coffee break">
+                <div class="error__wrapper" *ngIf="submitted &&  this.formGroup.get('title')?.invalid">
+                    <div class="error" *ngIf="this.formGroup.get('title')?.errors?.['required']"> <small>Cant be empty</small>  </div>
+                </div>
+            </div>
+            <div class="input__wrapper">
+                <label>Description</label>
+                <textarea type="text" formControlName="description"  placeholder="e.g. It’s always good to take a break. This 15 minute break will 
+                "></textarea>
+            </div>
+            <div class="input__wrapper">
+                <label>Subtasks</label>
+               <div class="subtasks" formArrayName="subtasks">
+                    <div class="subtasks__input__wrapper" *ngFor="let subtask of subtaskFormGroups.controls; let i =index" formGroupName="{{i}}">
+                        <input formControlName="title" [ngClass]="submitted &&  subtaskFormGroups.controls[i].get('title')?.invalid? 'input__error' : 'input'" type="text" placeholder="e.g. Take coffee break" >
+                        <img src="/assets/close.svg" *ngIf="subtaskFormGroups.controls.length>1" (click)="removeSubtask(i)" alt="close">
+                        <div class="error__wrapper left" *ngIf="submitted && subtaskFormGroups.controls[i].get('title')?.invalid">
+                            <div class="error" *ngIf="subtaskFormGroups.controls[i].get('title')?.errors?.['required']">
+                                <small>Cant be empty</small>
+                            </div>
+                          </div>
+                    </div>
+               </div>
+            </div>
+            <app-button [buttonClass]="'secondary'"  [width]="true" (click)="addSubtask()" >+ Add New Subtask</app-button>
+            <div class="input__wrapper">
+                <label>Status</label>
+                <input class="input mb" type="text" [value]="currentSelect" placeholder="e.g. Take coffee break" (keydown)="onKeyDown($event)"  (click)="openDropdown(); $event.stopPropagation()">
+                <app-arrow-icon class="img"  ></app-arrow-icon>
+                <app-select [contents]="selects" [currentContent]="currentSelect" (currentContentChanged)="currentContentChanged($event)"  [isDropdownOpen]="isDropdownOpen" class="select"></app-select>
+            </div>
+            <app-button [buttonClass]="'primary'" class="btn" [type]="'submit'" [width]="true" >Save Change</app-button>
+
+        </form>
+    </div>
+</app-modal>

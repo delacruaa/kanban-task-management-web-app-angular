@@ -1,0 +1,43 @@
+.wrapper {
+    
+    background: var(--background);
+    box-shadow: 0px 4px 6px rgba(54, 78, 126, 0.101545);
+    border-radius: 8px;
+    padding: 23px 16px;
+    width: 300px;
+    height: fit-content;
+    word-wrap: break-word;
+    margin-bottom: 20px;
+    cursor: pointer;
+    .title {
+        transition: 0.3s;
+        font-size: 15px;
+        line-height: 19px;
+        color: var(--color);
+        margin-bottom: 10px;
+        
+    }
+    .subtitle {
+        font-size: 12px;
+        line-height: 15px;
+        color: var(--medium-grey);
+    }
+    &:hover {
+        .title {
+            transition: 0.3s;
+            color: var(--primary);
+           
+            
+        }
+    }
+}
+.modal  {
+    position: absolute;
+    
+}
+
+@media(max-width:400px) {
+    .wrapper {
+        width: 250px;
+    }
+}

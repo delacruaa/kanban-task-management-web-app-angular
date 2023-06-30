@@ -1,0 +1,7 @@
+<div class="overlay" (click)="closeModal()" >
+   
+</div>
+
+<div class="modal__content"  [@modalAnimation]  (click)="$event.stopPropagation()">
+    <ng-content></ng-content>
+</div>

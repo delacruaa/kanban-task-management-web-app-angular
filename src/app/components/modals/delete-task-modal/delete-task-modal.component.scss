@@ -1,0 +1,20 @@
+.title {
+    color: var(--red);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+}
+.subtitle {
+    margin: 24px 0 ;
+    color: var(--medium-grey);
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 23px; 
+    word-wrap: break-word;
+}
+.btn__wrapper {
+    display: flex;
+    gap: 16px;
+}

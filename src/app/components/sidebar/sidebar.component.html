@@ -1,0 +1,20 @@
+<div >
+    <app-logo-icon class="logo"></app-logo-icon>
+    <div class="board__wrapper">
+        <p>ALL BOARDS ({{boardList.length}})</p>
+        <app-board-button *ngFor="let board of boardList" [buttonClass]="currentBoardName==board.name? 'board__btn__active':'board__btn'" (click)="changeCurrentBoard(board.name)">
+            {{board.name}}
+        </app-board-button>
+        <app-board-button [buttonClass]="'create__btn'"  (click)='openModal()'>
+            + Create New Board
+        </app-board-button>
+    </div>
+
+    <div class="theme__switcher__wrapper">
+        <app-theme-switcher class="theme__switcher"></app-theme-switcher>
+        <app-board-button [buttonClass]="'hide__btn'"  (click)="closeSidebar()">
+            Hide Sidebar
+        </app-board-button>
+    </div>
+</div>
+

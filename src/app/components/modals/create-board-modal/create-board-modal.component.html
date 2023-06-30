@@ -1,0 +1,42 @@
+<app-modal [modalName]="'createBoardModal'">
+    <div class="wrapper">
+        <h2 class="title">
+            Add New Board
+        </h2>
+
+        <form [formGroup] = "formGroup" (ngSubmit)="submitForm()"> 
+            <div class="input__wrapper">
+                <label>Board Name</label>
+                <input  [ngClass]="sameName || submitted &&  this.formGroup.get('name')?.invalid? 'input__error' : 'input'" type="text"  formControlName="name" (input)="checkSameName()" placeholder="e.g. Web Design">
+                <div class="error__wrapper" *ngIf="submitted &&  this.formGroup.get('name')?.invalid">
+                    <div class="error" *ngIf="this.formGroup.get('name')?.errors?.['required']"> <small>Cant be empty</small>  </div>
+                </div>
+                <div class="error__wrapper" *ngIf="sameName">
+                    <div class="error"> <small>This name already exists</small>  </div>
+                </div>
+            </div>
+            <div class="input__wrapper">
+                <label>Board Columns</label>
+               <div class="subtasks" formArrayName="columns">
+                    <div class="subtasks__input__wrapper" *ngFor="let column of columnFormGroups.controls; let i =index" formGroupName="{{i}}">
+                        <input formControlName="name" [ngClass]="sameColumn  || submitted &&  columnFormGroups.controls[i].get('name')?.invalid? 'input__error' : 'input'" (input)="checkSameColumns()" type="text" placeholder="e.g. Web Design" >
+                        <img src="/assets/close.svg" *ngIf="columnFormGroups.controls.length>1" (click)="removeColumn(i)" alt="close">
+                        <div class="error__wrapper left" *ngIf="submitted && columnFormGroups.controls[i].get('name')?.invalid">
+                            <div class="error" *ngIf="columnFormGroups.controls[i].get('name')?.errors?.['required']">
+                                <small>Cant be empty</small>
+                            </div>
+                          </div>
+                          <div class="error__wrapper left" *ngIf="sameColumn">
+                            <div class="error"> <small>not be same columns</small>  </div>
+                            </div>
+                    </div>
+               </div>
+            </div>
+           <div class="btn__wrapper">
+            <app-button [buttonClass]="'secondary'" [disabled] ="sameColumn"  [width]="true" (click)="addColumn()" >+ Add New Column</app-button>
+            <app-button [buttonClass]="'primary'"  [type]="'submit'" [width]="true" >Create New Board</app-button>
+           </div>
+
+        </form>
+    </div>
+</app-modal>

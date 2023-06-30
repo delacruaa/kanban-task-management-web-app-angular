@@ -1,0 +1,9 @@
+<div class="wrapper">
+    <p class="list__name">
+        {{columns.name}}
+    </p>
+
+    <div class="list">
+        <app-task-item *ngFor="let task of tasks.slice(1)" [status]="columns.name" [task]="task" ></app-task-item>
+    </div>
+</div>

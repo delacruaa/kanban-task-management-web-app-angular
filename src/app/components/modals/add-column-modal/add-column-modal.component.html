@@ -1,0 +1,22 @@
+<app-modal [modalName]="'addColumnModal'">
+    <div class="wrapper">
+        <h2 class="title">
+            Add New Column
+        </h2>
+
+        <form [formGroup] = "formGroup" (ngSubmit)="submitForm()"> 
+            <div class="input__wrapper">
+                <label>Column Name</label>
+                <input [ngClass]="sameColumn || submitted &&  this.formGroup.get('name')?.invalid? 'input__error' : 'input'" type="text"  formControlName="name"  (input)="checkSameColumn()" placeholder="e.g. Web Design">
+                <div class="error__wrapper" *ngIf="submitted &&  this.formGroup.get('name')?.invalid">
+                    <div class="error" *ngIf="this.formGroup.get('name')?.errors?.['required']"> <small>Cant be empty</small>  </div>
+                </div>
+                <div class="error__wrapper left" *ngIf="sameColumn">
+                    <div class="error"> <small>column  already exists</small>  </div>
+                </div>
+            </div>
+            <app-button [buttonClass]="'primary'" class="btn" [type]="'submit'" [width]="true" >Create New Column</app-button>
+
+        </form>
+    </div>
+</app-modal>

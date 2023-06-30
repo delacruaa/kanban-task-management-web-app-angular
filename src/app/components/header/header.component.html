@@ -1,0 +1,37 @@
+<header>
+    <div class="container" (click)="this.isOpenDropdown=false">
+        <div class="wrapper">
+            <div class="logo__wrapper">
+                
+               <app-logo-icon  class="logo" ></app-logo-icon>
+               <img src="/assets/logo2.svg" alt="logo">
+            </div>
+            <div [ngClass]="isSidebarOpen? 'title__left': 'title'">
+                <h1>PLatform Launch</h1>
+            </div> 
+            <div class="title__mobile"  (click)="openSidebarModal()">
+                <h1>PLatform Launch</h1>
+                <app-arrow-icon  class="arrow"></app-arrow-icon>
+              
+            </div> 
+
+            <div class="btn__wrapper">
+                <app-button [buttonClass]="'primary'" class="desktop" (click)="openModal()" >+ Add New Task</app-button>
+                <app-button [buttonClass]="'primary'" class="mobile" (click)="openModal()" >+</app-button>
+                <img src="/assets/dots.png" alt="dots"  (click)="openDropdown(); $event.stopPropagation()">
+                <app-dropdown *ngIf="isOpenDropdown" class="dropdown"  >
+                    <p class="edit" (click)="openEditBoardModal()">
+                        Edit Board                
+                    </p>
+                    <p class="delete" (click)="openDeleteBoardModal()">
+                       Delete Board          
+                    </p>
+                </app-dropdown>
+            </div>
+        </div>
+    </div>
+</header>
+
+<app-add-task-modal  *ngIf="addTaskModalIsOpen">
+
+</app-add-task-modal>

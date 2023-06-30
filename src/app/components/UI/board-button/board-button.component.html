@@ -1,0 +1,11 @@
+<button [ngClass]="buttonClass">
+    <app-board-icon class="svg not__hovered" [fill]="'#828FA3'"></app-board-icon>
+    <app-board-icon class="svg hovered" [fill]="'#635FC7'"></app-board-icon>
+    <app-board-icon class="svg active" [fill]="'#FFF'"></app-board-icon>
+   
+    <app-eye-close-icon class="svg hide__not__hovered" [fill]="'#828FA3'"></app-eye-close-icon>
+    <app-eye-close-icon class="svg hide__hovered" [fill]="'#635FC7'"></app-eye-close-icon>
+    <p >
+        <ng-content></ng-content>
+    </p>
+</button>

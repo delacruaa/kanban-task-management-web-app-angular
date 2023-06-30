@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #635FC7;
+  --primary-hover: #A8A4FF;
+  --red: #EA5555;
+  --red-hover: #FF9898;
+  --white: #FFF;
+  --medium-grey: #828FA3;
+  --dark-grey: #2B2C37;
+  --very-dark-grey: #20212C;
+  --lines-drak:#3E3F4E;
+  --lines-light: #E4EBFA;
+  --light-grey:#F4F7FD;
+  --black: #000012;
+
+}
+
+body {
+  
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  background: var(--background-color);
+  overflow-x: hidden;
+}
+body[data-theme ='light' ] {
+  --background-color: var(--lines-light);
+  --background: var(--white);
+  --border: var(--lines-light);
+  --color: var(--black);
+  --board-btn:#625fc71a;
+  --column: linear-gradient(180deg, #E9EFFA 0%, rgba(233, 239, 250, 0.50) 100%);
+
+
+}
+body[data-theme ='dark' ] {
+  --background-color: var( --very-dark-grey);
+  --background: var(--dark-grey);
+  --border: var(--lines-drak);
+  --color: var(--white);
+  --board-btn:var(--white);
+  --column: linear-gradient(180deg, rgba(43, 44, 55, 0.25) 0%, rgba(43, 44, 55, 0.13) 100%);
+}
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media(max-width:800px) {
+  .container {
+  
+    padding: 0 10px;
+  }
+  
+}

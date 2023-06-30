@@ -1,0 +1,23 @@
+
+.wrapper {
+    position: fixed;
+    left: -300px;
+    transition: 0.6s all;
+    width: 300px;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    background-color: var(--background);
+    z-index: 3;
+   
+}
+
+
+.wrapper__active {
+    position: fixed;
+    left: 0;
+    transition: 0.6s all;
+    
+    @extend .wrapper;
+}
+

@@ -1,0 +1,46 @@
+<app-modal [modalName]="'viewTaskModal'">
+    <div class="wrapper">
+        <h2 class="title">
+           {{task.title}}
+        </h2>
+        <p class="subtitle">
+            {{task.description}}
+        </p>
+
+        <p class="subtasks">
+            Subtasks ({{completedSubtaskCount}} of {{subtasks.length}})
+        </p>
+        <div class="checkboxes__wrapper">
+            <div class="checkbox" *ngFor="let subtask of subtasks" (click)="updateSubtaskCompleted(subtask.id, subtask.isCompleted)">
+                <div class="icon__wrapper__checked" *ngIf="subtask.isCompleted">    
+                    <img src="/assets/check.svg" alt="check">
+                </div>
+                <div class="icon__wrapper" *ngIf="!subtask.isCompleted">    
+                   
+                </div>
+                <p class="title__checked" *ngIf="subtask.isCompleted">
+                   {{subtask.title}}
+                </p>
+                <p class="title" *ngIf="!subtask.isCompleted">
+                    {{subtask.title}}
+                 </p>
+            </div>
+        </div>
+        <div class="input__wrapper">
+            <label>Status</label>
+            <input class="input mb" type="text" [value]="currentSelect" placeholder="e.g. Take coffee break" (keydown)="onKeyDown($event)"  (click)="openSelect(); $event.stopPropagation()">
+            <app-arrow-icon class="img"  ></app-arrow-icon>
+            <app-select [contents]="selects" [currentContent]="currentSelect" (currentContentChanged)="currentContentChanged($event)"  [isDropdownOpen]="isSelectOpen" class="select"></app-select>
+        </div>
+
+        <img class="dots" src="/assets/dots.png" alt="dots"  (click)="openDropdown(); $event.stopPropagation()">
+        <app-dropdown *ngIf="isDropdownOpen" class="dropdown"  >
+            <p class="edit" (click)="openEditModal()">
+                Edit Task              
+            </p>
+            <p class="delete" (click)="openDeleteModal()">
+               Delete Task         
+            </p>
+        </app-dropdown>
+    </div>
+</app-modal>

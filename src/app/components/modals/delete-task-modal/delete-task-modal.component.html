@@ -1,0 +1,18 @@
+<app-modal [modalName]="'deleteTaskModal'">
+    <h2 class="title">
+        Delete this task
+    </h2>
+
+    <p class="subtitle">
+        Are you sure you want to delete the ‘{{task.title}}I’ task and its subtasks? This action cannot be reversed.
+    </p>
+
+    <div class="btn__wrapper">
+        <app-button [buttonClass]="'delete'" (click)="deleteTask()">
+            Delete
+        </app-button>
+        <app-button [buttonClass]="'secondary'" (click)="closeModal()">
+            Cancel
+        </app-button>
+    </div>
+</app-modal>

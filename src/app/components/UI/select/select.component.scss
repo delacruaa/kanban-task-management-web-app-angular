@@ -1,0 +1,30 @@
+ul {
+   
+    
+    height: fit-content; 
+    border-radius: 10px;
+    background: var(--background);
+    box-shadow: 0px 10px 40px -7px rgba(55, 63, 104, 0.35);
+    list-style-type: none;
+    li {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 24px;
+        &:last-child {
+            border: none;
+        }
+        p {
+
+            color: var(--medium-grey);
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 23px; 
+            transition: 0.3s;
+            &:hover {
+                color: var(--primary);
+                transition: 0.3s;
+            }
+        }
+    }
+}

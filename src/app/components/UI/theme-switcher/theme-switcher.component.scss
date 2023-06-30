@@ -1,0 +1,53 @@
+
+.wrapper {
+    width: 251px;
+    height: 48px;
+    background-color: var(--background-color);
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+   
+  }
+  
+  .toggle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+  .toggleButton {
+      width: 48px;
+      height: 24px;
+      border-radius:10px;
+      position: relative;
+      background-color: var(--primary);
+      transition: 0.2s linear;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .toggleButton:active {
+      transform: scale(0.9);
+    }
+    
+    .toggleButton:before {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      background-color: var(--white);
+      border-radius: 100%;
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transition: 0.2s linear;
+    }
+    
+    .toggleButton[data-active-theme='light']:before {
+      transform: translateY(-50%) translateX(0);
+    }
+    
+    .toggleButton[data-active-theme='dark']:before {
+      transform: translateY(-50%) translateX(165%);
+    }
+  

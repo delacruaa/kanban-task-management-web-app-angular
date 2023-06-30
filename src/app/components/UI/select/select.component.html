@@ -1,0 +1,9 @@
+<ul *ngIf="isDropdownOpen">
+    <li *ngFor="let content of contents"  (click)="editCurrentContent(content)">
+        <p >{{content}}</p>
+        <img  *ngIf="content==currentContent"  src="/assets/check.svg" alt="check">
+    </li>
+   
+    
+    
+</ul>
