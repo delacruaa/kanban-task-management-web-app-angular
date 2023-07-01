@@ -2,11 +2,11 @@
 <app-sidebar [ngClass]="isSidebarOpen? 'wrapper__active': 'wrapper'" [boardList]="boardList" [currentBoardName]="currentBoardName"></app-sidebar>
 <app-board [loading]="loading" [error]="error" [boardList]="boardList" class="board" ></app-board>
 <app-eye-button *ngIf="!error && !loading && boardList.length!==0" class="eye-button"></app-eye-button>
-<app-view-task-model  *ngIf="viewTaskModalIsOpen"></app-view-task-model>
-<app-delete-task-modal *ngIf="deleteTaskModalIsOpen"></app-delete-task-modal>
-<app-edit-task-modal *ngIf="editTaskModalIsOpen"></app-edit-task-modal>
-<app-create-board-modal *ngIf="createBoardModalIsOpen"></app-create-board-modal>
-<app-edit-board-modal *ngIf="editBoardModalIsOpen"></app-edit-board-modal>
-<app-delete-board-modal *ngIf="deleteBoardModalIsOpen"> </app-delete-board-modal>
-<app-add-column-modal *ngIf="addColumnModalIsOpen"></app-add-column-modal>
-<app-sidebar-modal [boardList]="boardList" [currentBoardName]="currentBoardName" *ngIf="sidebarModalIsOpen"></app-sidebar-modal>
+<app-view-task-model  *ngIf="viewTaskModal"></app-view-task-model>
+<app-delete-task-modal *ngIf="deleteTaskModal"></app-delete-task-modal>
+<app-edit-task-modal *ngIf="editTaskModal"></app-edit-task-modal>
+<app-create-board-modal *ngIf="createBoardModal"></app-create-board-modal>
+<app-edit-board-modal *ngIf="editBoardModal"></app-edit-board-modal>
+<app-delete-board-modal *ngIf="deleteBoardModal"> </app-delete-board-modal>
+<app-add-column-modal *ngIf="addColumnModal"></app-add-column-modal>
+<app-sidebar-modal [boardList]="boardList" [currentBoardName]="currentBoardName" *ngIf="sidebarModal"></app-sidebar-modal>
