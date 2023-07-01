@@ -11,7 +11,7 @@ import { SidebarService } from 'src/app/services/sidebar.service';
 export class HeaderComponent  {
   isOpenDropdown=false
   isSidebarOpen!:boolean
-  addTaskModalIsOpen=false
+  addTaskModal=false
   @Input() currentBoardName!:string
   @Input() boardList!:IBoard[]
   constructor(private elementRef: ElementRef,private sidebarService:SidebarService,private modalService:ModalService) {}
@@ -19,8 +19,8 @@ export class HeaderComponent  {
     this.sidebarService.getSidebarOpen().subscribe(data=> {
       this.isSidebarOpen = data
     })
-    this.modalService.addTaskModalIsOpen.subscribe(data=> {
-      this.addTaskModalIsOpen =data
+    this.modalService.addTaskModal.subscribe(data=> {
+      this.addTaskModal =data
       console.log(data)
     })
     
@@ -49,10 +49,4 @@ export class HeaderComponent  {
       this.isOpenDropdown=false
     }
   }
-
-
-  
-
-  
-
 }
