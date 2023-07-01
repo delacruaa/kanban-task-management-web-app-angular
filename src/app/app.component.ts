@@ -17,14 +17,14 @@ export class AppComponent {
   error=false
   boardList:IBoard[] = [] 
   currentBoardName!:string
-  viewTaskModalIsOpen=false
-  deleteTaskModalIsOpen= false
-  editTaskModalIsOpen=false
-  createBoardModalIsOpen=false
-  editBoardModalIsOpen=false
-  deleteBoardModalIsOpen=false
-  addColumnModalIsOpen=false
-  sidebarModalIsOpen=false
+  viewTaskModal=false
+  deleteTaskModal= false
+  editTaskModal=false
+  createBoardModal=false
+  editBoardModal=false
+  deleteBoardModal=false
+  addColumnModal=false
+  sidebarModal=false
   constructor(private sidebarService:SidebarService, private boardService: BoardService,private modalService: ModalService) {}
   ngOnInit(): void {
     this.loading=true
@@ -52,30 +52,30 @@ export class AppComponent {
       this.boardService.currentBoard.next(this.boardList.slice(1).filter(item=>item.name===currentBoardName)[0])
     })
 
-    this.modalService.viewTaskModalIsOpen.subscribe(data=> {
-      this.viewTaskModalIsOpen =data
+    this.modalService.viewTaskModal.subscribe(data=> {
+      this.viewTaskModal =data
     })
-    this.modalService.deleteTaskModalIsOpen.subscribe(data=> {
-      this.deleteTaskModalIsOpen =data
+    this.modalService.deleteTaskModal.subscribe(data=> {
+      this.deleteTaskModal =data
     })
-    this.modalService.editTaskModalIsOpen.subscribe(data=> {
-      this.editTaskModalIsOpen =data
+    this.modalService.editTaskModal.subscribe(data=> {
+      this.editTaskModal =data
     })
-    this.modalService.createBoardModalIsOpen.subscribe(data=> {
-      this.createBoardModalIsOpen =data
+    this.modalService.createBoardModal.subscribe(data=> {
+      this.createBoardModal =data
     })
-    this.modalService.editBoardModalIsOpen.subscribe(data=> {
-      this.editBoardModalIsOpen =data
+    this.modalService.editBoardModal.subscribe(data=> {
+      this.editBoardModal =data
     })
-    this.modalService.deleteBoardModalIsOpen.subscribe(data=> {
-      this.deleteBoardModalIsOpen =data
+    this.modalService.deleteBoardModal.subscribe(data=> {
+      this.deleteBoardModal =data
     })
 
-    this.modalService.addColumnModalIsOpen.subscribe(data=> {
-      this.addColumnModalIsOpen =data
+    this.modalService.addColumnModal.subscribe(data=> {
+      this.addColumnModal =data
     })
-    this.modalService.sidebarModalIsOpen.subscribe(data=> {
-      this.sidebarModalIsOpen =data
+    this.modalService.sidebarModal.subscribe(data=> {
+      this.sidebarModal =data
     })
   }
 
